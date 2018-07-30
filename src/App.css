@@ -1,0 +1,91 @@
+.app {
+  background-color: #efeff4;
+  width: 750;
+  flex: 1;
+  margin-bottom: 50;
+}
+
+.content{
+  width: 750;
+  height: 510;
+  background-color: white;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.content_first {
+  padding-top: 50;
+}
+
+.item {
+  width: 250;
+  height: 160;
+  justify-content: center;
+  align-items: center;
+}
+
+.item_top {
+  margin-bottom: 80;
+}
+
+.grade_icon {
+  width: 115;
+  height: 96;
+}
+
+.card_icon {
+  width: 90;
+  height: 100;
+}
+
+.xueer_icon {
+  width: 102;
+  height: 100;
+}
+
+.website_icon {
+  width: 96;
+  height: 91;
+}
+
+
+.gpa_icon {
+  width: 87;
+  height: 100;
+}
+
+.cengke_icon {
+  width: 122;
+  height: 100;
+}
+
+.idle_icon {
+  width:109;
+  height: 100;
+}
+
+.ele_icon {
+  width: 80;
+  height: 100;
+}
+
+.cal_icon {
+  width: 105;
+  height: 100;
+}
+
+.noti_icon {
+  width: 90;
+  height: 105;
+}
+
+.info_icon {
+  width: 122;
+  height: 97;
+}
+
+.item_font {
+  margin-top: 20;
+  font-size: 28px;
+  color: #6767fa;
+}
