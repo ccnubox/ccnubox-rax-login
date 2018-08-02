@@ -9,10 +9,12 @@
   },
   "dependencies": {
     "rax": "^0.5.2",
+    "rax-button": "^0.6.4",
     "rax-image": "^0.5.2",
     "rax-scrollview": "^0.6.4",
     "rax-slider": "^0.5.2",
     "rax-text": "^0.5.2",
+    "rax-textinput": "^0.6.4",
     "rax-touchable": "^0.5.2",
     "rax-view": "^0.5.2"
   },
