@@ -5,6 +5,7 @@ import Text from "rax-text";
 import Image from "rax-image";
 const native = require("@weex-module/test");
 
+import Notification from "../box-ui/common/notification";
 import BoxTextInput from "../box-ui/common/text-input";
 import BoxButton from "../box-ui/common/button";
 import styles from "./App.css";
@@ -36,12 +37,15 @@ class App extends Component {
         loading: true
       });
       native.mainLogin(sid, pwd, res => {
-        if (res.code === 200) {
+        if (res.code === "200") {
           native.back();
         } else {
           this.reset();
-          // todo: code to message map
-          alert(res.code);
+          if (res.code === "401") {
+            alert("学号或者密码错误，请确认您可以正常登录 one.ccnu.edu.cn。新生请先在 one.ccnu.edu.cn 激活您的账号并重置密码。账号为学号，初始密码为身份证后六位。若有疑问可加匣子交流群 576225292。");
+          } else {
+            alert("服务端错误，登录失败");
+          }
         }
       });
     }
@@ -72,6 +76,7 @@ class App extends Component {
           }
         ]}
       >
+        <Notification pageId="com.muxistudio.login" />
         <View
           style={[
             styles.container,
@@ -86,10 +91,12 @@ class App extends Component {
           </View>
           <View>
             <BoxTextInput
+              value={this.state.sid}
               keyboardType="number-pad"
               placeholder="请输入学号"
               width={550}
               height={100}
+              onInput={this.onSidChange}
               onChange={this.onSidChange}
             />
           </View>
@@ -107,11 +114,13 @@ class App extends Component {
         >
           <View>
             <BoxTextInput
+              value={this.state.pwd}
               placeholder="请输入密码"
               width={550}
               height={100}
               password
               onChange={this.onPwdChange}
+              onInput={this.onPwdChange}
               onFocus={() => {
                 if (screen.height - 400 < 400) {
                   this.setState({

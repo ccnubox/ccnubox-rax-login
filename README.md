@@ -1,6 +1,6 @@
-## ccnubox-iOS-rax-main
+## ccnubox-iOS-rax-login
 
-Main page of ccnubox iOS APP.
+Login page of ccnubox iOS APP.
 
 ### dev
 
