@@ -1,6 +1,7 @@
 import { createElement, Component } from "rax";
 import ScrollView from "rax-scrollview";
 import View from "rax-view";
+import Touchable from "rax-touchable";
 import Text from "rax-text";
 import Image from "rax-image";
 const native = require("@weex-module/test");
@@ -42,7 +43,9 @@ class App extends Component {
         } else {
           this.reset();
           if (res.code === "401") {
-            alert("学号或者密码错误，请确认您可以正常登录 one.ccnu.edu.cn。新生请先在 one.ccnu.edu.cn 激活您的账号并重置密码。账号为学号，初始密码为身份证后六位。若有疑问可加匣子交流群 576225292。");
+            alert(
+              "学号或者密码错误，请确认您可以正常登录 one.ccnu.edu.cn。新生请先在 one.ccnu.edu.cn 激活您的账号并重置密码。账号为学号，初始密码为身份证后六位。若可以登陆 one.ccnu.edu 但不能登陆匣子，可加匣子交流群 576225292 咨询。"
+            );
           } else {
             alert("服务端错误，登录失败");
           }
@@ -135,15 +138,23 @@ class App extends Component {
                 });
               }}
             />
-            <Text
-              style={{
-                color: "#ccccff",
-                fontSize: 27,
-                marginTop: 25
+            <Touchable
+              onPress={() => {
+                alert(
+                  "新生用户名为学号，初始密码（如果未修改）为证件号后6位（其中大陆学生证件号为身份证号，港澳学生证件号为回乡证号，台湾学生证件号为台胞证号，外国留学生证件号为护照号），忽略括号，字母均为小写。如果登陆失败，新生请先尝试用默认密码登陆 one.ccnu.edu.cn。如果不能登陆，说明学校还未激活账号。若有疑问可加匣子交流群 576225292 咨询"
+                );
               }}
             >
-              密码为 one.ccnu.edu.cn 登录密码
-            </Text>
+              <Text
+                style={{
+                  color: "#ccccff",
+                  fontSize: 27,
+                  marginTop: 25
+                }}
+              >
+                对密码有疑问？（新生看这里）
+              </Text>
+            </Touchable>
           </View>
           <View style={styles.btn_container}>
             <BoxButton
